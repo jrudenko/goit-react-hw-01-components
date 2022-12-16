@@ -1,6 +1,6 @@
-### Профіль соціальної мережі
+# Профіль соціальної мережі
 
-# React homework template
+## React homework template
 
 Этот проект был создан при помощи
 [Create React App](https://github.com/facebook/create-react-app). Для знакомства
@@ -9,16 +9,16 @@
 
 **Старт проєкту, використовуючи термінал**
 
-% node -v v14.18.3
+> % node -v v14.18.3
 
-% npm i /.../
+>% npm i /.../
 
-% npm start ... Local: http://localhost:3000/goit-react-hw-01-components
-Використовується шаблон React-проекту
+>% npm start ... Local: http://localhost:3000/goit-react-hw-01-components
+>Використовується шаблон React-проекту
 
 **Критерії приймання**
 
-Используй этот шаблон React-проекта как стартовую точку своего приложения.
+***Використовуй цей шаблон React-проекту як стартову точку своєї програми.***
 
 Створений репозиторій goit-react-hw-01-components. Компоненти всіх завдань
 рендеряться на одній сторінці, всередині спільного контейнера – кореневого
@@ -45,7 +45,7 @@ Components, тому класи в результуючому DOM відрізн
 username — ім'я користувача tag — тег в соціальній мережі без @ location — місто
 і країна avatar — посилання на зображення stats — об'єкт з інформацією про
 активності Компонент повинен створювати DOM елемент наступної структури.
-
+```Javascript
 <div class="profile">
   <div class="description">
     <img
@@ -73,16 +73,20 @@ username — ім'я користувача tag — тег в соціальні
     </li>
   </ul>
 </div>
+```
 Приклад використання
 import user from 'путь/к/user.json;
 
+```Javascript
 <Profile
   username={user.username}
   tag={user.tag}
   location={user.location}
   avatar={user.avatar}
   stats={user.stats}
-/> Секція статистики Створити компонент <Statistics>, який би відображав
+/> 
+```
+Секція статистики Створити компонент <Statistics>, який би відображав
 статистику з переданих пропсів. Наприклад, завантаження у хмару за типом файлів,
 відвідування веб-сторінки користувачами різних країн, фінансові витрати тощо.
 Дані про статистику лежать у файлі data.json.
@@ -98,7 +102,7 @@ title – не обов'язковий, і якщо він не передани
 статистики в оформленні можна пропустити або створити функцію для генерації
 випадкового кольору. Компонент повинен створювати DOM елемент наступної
 структури.
-
+```Javascript
 <section class="statistics">
   <h2 class="title">Upload stats</h2>
 
@@ -121,10 +125,13 @@ title – не обов'язковий, і якщо він не передани
     </li>
   </ul>
 </section>
+```
 Приклад використання
 import data from '/путь/к/data.json';
 
+```Javascript
 <Statistics title="Upload stats" stats={data} />; <Statistics stats={data} />;
+```
 Список друзів Необхідно створити компонент <FriendList>, за допомогою якого ми
 могли б відображати інформацію про друзів користувача. Інформація про друзів
 зберігається у файлі friends.json.
@@ -136,9 +143,11 @@ import data from '/путь/к/data.json';
 
 Компонент повинен створювати DOM наступної структури.
 
+```Javascript
 <ul class="friend-list">
   <!-- Довільна кіл-сть FriendListItem -->
 </ul>
+```
 Опис компонента <FriendListItem>
 Компонент повинен приймати кілька пропів:
 
@@ -149,15 +158,20 @@ Styled Components.
 
 Компонент повинен створювати DOM наступної структури.
 
+```Javascript
 <li class="item">
   <span class="status"></span>
   <img class="avatar" src="" alt="User avatar" width="48" />
   <p class="name"></p>
 </li>
+```
 Приклад використання
 import friends from 'путь/к/friends.json';
 
-<FriendList friends={friends} />, Історія транзакцій Необхідно створити
+```Javascript
+<FriendList friends={friends} />
+```
+ Історія транзакцій Необхідно створити
 компонент історії транзакцій в особистому кабінеті інтернет-банку.
 
 Прев'ю компонента TransactionHistory
@@ -172,6 +186,7 @@ id — унікальний ідентифікатор транзакції type
 Кожна транзакція – це рядок таблиці. У прикладі наведена розмітка двох
 транзакцій.
 
+```Javascript
 <table class="transaction-history">
   <thead>
     <tr>
@@ -194,7 +209,10 @@ id — унікальний ідентифікатор транзакції type
     </tr>
   </tbody>
 </table>
+```
 Приклад використання
 import transactions from 'путь/к/transactions.json';
 
+```Javascript
 <TransactionHistory items={transactions} />;
+```
