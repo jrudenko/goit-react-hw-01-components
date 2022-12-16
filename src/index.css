@@ -1,5 +1,3 @@
-/* @import-normalize; bring in normalize.css styles */
-
 html {
   box-sizing: border-box;
 }
@@ -47,7 +45,7 @@ body {
     font-size: 14px;
     line-height: 1.5;
     color: #000;
-    background-color: #a39c9c;
+    background-color: #84b892;
 }
 
 code {

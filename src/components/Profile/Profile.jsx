@@ -1,42 +1,57 @@
-const Profile = ({ avatar, name, tag, location, stats }) => {
-    return (
-        <div class="profile">
-            <div class="description">
-                <img
-                    src={avatar}
-                    alt="Аватар пользователя"
-                    class="avatar"
-                    width="150"
-                />
-                <p class="name">{name}</p>
-                <p class="tag">@{tag}</p>
-                <p class="location">{location}</p>
-            </div>
+import PropTypes from 'prop-types';
 
-            <ul class="stats">
-                <li>
-                    <span class="label">Followers</span>
-                    <span class="quantity">{stats.followers}</span>
-                </li>
-                <li>
-                    <span class="label">Views</span>
-                    <span class="quantity">{stats.views}</span>
-                </li>
-                <li>
-                    <span class="label">Likes</span>
-                    <span class="quantity">{stats.likes}</span>
-                </li>
-            </ul>
-        </div>
-    );
+import {
+  Card,
+  Description,
+  Avatar,
+  UserName,
+  UserInfo,
+  StatsList,
+  StatsItem,
+  Label,
+  Quantity,
+} from './Profile.styled.jsx';
+
+const Profile = ({
+  username,
+  tag,
+  location,
+  avatar,
+  stats: { followers, views, likes },
+}) => {
+  return (
+    <Card>
+      <Description>
+        <Avatar src={avatar} alt="User avatar" />
+        <UserName>{username}</UserName>
+        <UserInfo>@{tag}</UserInfo>
+        <UserInfo>{location}</UserInfo>
+      </Description>
+
+      <StatsList>
+        <StatsItem>
+          <Label>Followers</Label>
+          <Quantity>{followers}</Quantity>
+        </StatsItem>
+        <StatsItem>
+          <Label>Views</Label>
+          <Quantity>{views}</Quantity>
+        </StatsItem>
+        <StatsItem>
+          <Label>Likes</Label>
+          <Quantity>{likes}</Quantity>
+        </StatsItem>
+      </StatsList>
+    </Card>
+  );
+};
+
+Profile.propTypes = {
+  username: PropTypes.string,
+  tag: PropTypes.string,
+  location: PropTypes.string,
+  avatar: PropTypes.string,
+  stats: PropTypes.objectOf(PropTypes.number),
 };
 
 export default Profile;
-
-// Profile.propTypes = {
-//   username: PropTypes.string,
-//   tag: PropTypes.string,
-//   location: PropTypes.string,
-//   avatar: PropTypes.string,
-//   stats: PropTypes.objectOf(PropTypes.number),
-// };

@@ -1,24 +1,39 @@
+import PropTypes from 'prop-types';
+import {
+  Container,
+  Title,
+  StatList,
+  StatItem,
+  Label,
+  Percentage,
+} from './Statistics.style.jsx';
 
+ const Statistics = ({ title, stats }) => {
+  return (
+    <Container>
+      {title && <Title>{title}</Title>}
 
-<section class="statistics">
-  <h2 class="title">Upload stats</h2>
+      <StatList>
+        {stats.map(({ id, label, percentage }) => (
+          <StatItem key={id}>
+            <Label>{label}</Label>
+            <Percentage>{percentage}%</Percentage>
+          </StatItem>
+        ))}
+      </StatList>
+    </Container>
+  );
+};
 
-  <ul class="stat-list">
-    <li class="item">
-      <span class="label">.docx</span>
-      <span class="percentage">4%</span>
-    </li>
-    <li class="item">
-      <span class="label">.mp3</span>
-      <span class="percentage">14%</span>
-    </li>
-    <li class="item">
-      <span class="label">.pdf</span>
-      <span class="percentage">41%</span>
-    </li>
-    <li class="item">
-      <span class="label">.mp4</span>
-      <span class="percentage">12%</span>
-    </li>
-  </ul>
-</section>
+Statistics.propTypes = {
+  title: PropTypes.string,
+  stats: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string,
+      label: PropTypes.string,
+      percentage: PropTypes.number,
+    })
+  ),
+};
+
+export default Statistics;
